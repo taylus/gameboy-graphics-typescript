@@ -31,30 +31,30 @@ namespace Graphics {
     ];
 
     document.addEventListener("DOMContentLoaded", function () {
-        let canvas = initCanvas(160, 144);
+        let canvas = initCanvas(160, 144, "screen");
         document.body.appendChild(canvas);
 
         let context = canvas.getContext("2d");
         fill(context, palette[2]);
-        scale(canvas, 4);
+        //scale(canvas, 2);
 
         let vramCanvas = initCanvas(128, 192);
-        vramCanvas.style.verticalAlign = "top";
-        document.body.appendChild(vramCanvas);
+        //vramCanvas.style.verticalAlign = "top";
+        //document.body.appendChild(vramCanvas);
 
-        var vramContext = vramCanvas.getContext("2d");
+        //var vramContext = vramCanvas.getContext("2d");
         loadImage("pkmn_bank1.png").then(function (tileset) {
-            vramContext.drawImage(tileset, 0, 0);
-            drawGrid(context);
+            //vramContext.drawImage(tileset, 0, 0);
+            //drawGrid(context);
             drawMap(context, tileset, tilemap);
         });
-        drawGrid(vramContext);
     });
 
-    function initCanvas(width: number, height: number): HTMLCanvasElement {
+    function initCanvas(width: number, height: number, id?: string): HTMLCanvasElement {
         let canvas = document.createElement("canvas");
         canvas.width = width;
         canvas.height = height;
+        if (id) canvas.id = id;
         return canvas;
     }
 

@@ -5,3 +5,9 @@ canvas {
     image-rendering: crisp-edges;
     -ms-interpolation-mode: nearest-neighbor;
 }
+
+canvas#screen {
+    position: absolute;
+    top: 56px;
+    left: 70px;
+}
